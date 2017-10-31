@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "author": "Danilo Pimentel",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.10.0"
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  }
 }

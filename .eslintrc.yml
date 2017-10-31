@@ -1,5 +1,6 @@
 env:
   browser: true
+  node: true
   es6: true
 extends: 'eslint:recommended'
 parserOptions:
@@ -7,7 +8,7 @@ parserOptions:
 rules:
   indent:
     - error
-    - 4
+    - 2
   linebreak-style:
     - error
     - unix

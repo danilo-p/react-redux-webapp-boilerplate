@@ -10,14 +10,39 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: /node_modules/
       },
       {
-        test: /\.jsx$/,
-        loader: "babel-loader",
-        exclude: /node_modules/
+        test: /\.styl$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: true,
+              camelCase: true
+            }
+          },
+          {
+            loader: 'stylus-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'dist/assets'
+            }
+          }
+        ]
       }
     ]
   },

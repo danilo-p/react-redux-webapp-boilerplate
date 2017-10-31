@@ -1,0 +1,7 @@
+{
+  "name": "webapp-react-boilerplate",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Danilo Pimentel",
+  "license": "MIT"
+}

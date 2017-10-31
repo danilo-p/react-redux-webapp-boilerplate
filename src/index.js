@@ -1,2 +1,5 @@
-// eslint-disable-next-line no-console
-console.log("Hello World");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app/App';
+
+ReactDOM.render(<App />, document.getElementById('root'));

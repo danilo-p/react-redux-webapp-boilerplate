@@ -1,10 +1,10 @@
 import React from "react";
-import "./App.styl";
+import styles from "./App.styl";
 
 class App extends React.Component {
   render() {
     return (
-      <h1>Hello World!</h1>
+      <h1 className={styles.title}>Hello World!</h1>
     );
   }
 }

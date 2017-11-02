@@ -2,8 +2,9 @@
  * TODO
  * - [x] Add tests with Jest
  * - [] Study Jest
- * - [] Study Enzyme
+ * - [] Study Enzyme and React Elements test
  * - [] Add support to raw files
+ * - [] Add support to coveralls
  * - [] Check if the images are being placed at dist/assets
  * - [] Add support for PugJs on the index.html template
  * - [] Configure build for production

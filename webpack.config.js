@@ -7,6 +7,12 @@ module.exports = {
     path: path.resolve("dist"),
     filename: "index_bundle.js"
   },
+  resolve: {
+    modules: [
+      path.resolve(__dirname, "src"),
+      "node_modules"
+    ]
+  },
   module: {
     loaders: [
       {
@@ -29,7 +35,7 @@ module.exports = {
             }
           },
           {
-            loader: 'stylus-loader'
+            loader: "stylus-loader"
           }
         ]
       },
@@ -37,18 +43,22 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              outputPath: 'dist/assets'
+              outputPath: "dist/assets"
             }
           }
         ]
+      },
+      {
+        test: /\.txt$/,
+        use: "raw-loader"
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: "src/index.html"
     })
   ]
 };

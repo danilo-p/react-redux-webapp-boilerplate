@@ -4,7 +4,10 @@ import styles from "./App.styl";
 class App extends React.Component {
   render() {
     return (
-      <h1 className={styles.title}>Hello World!</h1>
+      <div className="App">
+        <h1 className={styles.title}>React Webapp Boilerplate</h1>
+        {require("common/lorem.txt")}
+      </div>
     );
   }
 }

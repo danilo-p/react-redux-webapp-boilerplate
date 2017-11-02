@@ -57,6 +57,17 @@ module.exports = {
       {
         test: /\.pug$/,
         use: "pug-loader"
+      },
+      {
+        test: /\.yml$/,
+        use: [
+          {
+            loader: "json-loader"
+          },
+          {
+            loader: "yaml-loader"
+          }
+        ]
       }
     ]
   },

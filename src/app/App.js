@@ -7,6 +7,7 @@ class App extends React.Component {
       <div className="App">
         <h1 className={styles.title}>React Webapp Boilerplate</h1>
         {require("common/lorem.txt")}
+        <img src={require("common/random.jpg")} alt="Just a random image"/>
       </div>
     );
   }

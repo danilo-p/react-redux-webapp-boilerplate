@@ -3,7 +3,7 @@
  * - [x] Add tests with Jest
  * - [] Study Jest
  * - [] Study Enzyme and React Elements test
- * - [] Add support to raw files
+ * - [x] Add support to raw files
  * - [] Add support to coveralls
  * - [] Check if the images are being placed at dist/assets
  * - [] Add support for PugJs on the index.html template

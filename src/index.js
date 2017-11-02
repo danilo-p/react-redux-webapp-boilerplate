@@ -8,7 +8,7 @@
  * - [x] Check if the images are being placed at dist/assets
  * - [x] Add support for PugJs on the index.html template
  * - [] Configure build for production
- * - [] Add support to project configuration (maybe common_config?)
+ * - [x] Add support to project configuration
  * - [] Search and add references to the used JS guidelines
  * - [] Search and add references to the used React guidelines
  * - [] Search and add references to the used styles guidelines

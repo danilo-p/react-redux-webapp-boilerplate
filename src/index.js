@@ -5,8 +5,8 @@
  * - [] Study Enzyme and React Elements test
  * - [x] Add support to raw files
  * - [] Add support to coveralls
- * - [] Check if the images are being placed at dist/assets
- * - [] Add support for PugJs on the index.html template
+ * - [x] Check if the images are being placed at dist/assets
+ * - [x] Add support for PugJs on the index.html template
  * - [] Configure build for production
  * - [] Add support to project configuration (maybe common_config?)
  * - [] Search and add references to the used JS guidelines

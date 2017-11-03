@@ -6,7 +6,7 @@ import styles from './App.styl';
 
 const App = () => (
   <div className="App">
-    <h1 className={styles.title}>React Webapp Boilerplate</h1>
+    <h1 className={styles.title}>React Redux Webapp Boilerplate</h1>
     {loremIpsum}
     <img src={randomImage} alt="This is random" />
     <code>

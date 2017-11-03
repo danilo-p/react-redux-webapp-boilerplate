@@ -1,5 +1,5 @@
 {
-  "name": "webapp-react-boilerplate",
+  "name": "react-redux-webapp-boilerplate",
   "version": "1.0.0",
   "main": "src/index.js",
   "author": "Danilo Pimentel",

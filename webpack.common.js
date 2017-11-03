@@ -1,81 +1,72 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.resolve("dist"),
-    filename: "index_bundle.js"
+    path: path.resolve('dist'),
+    filename: 'index_bundle.js',
   },
   resolve: {
     modules: [
-      path.resolve(__dirname, "src"),
-      "node_modules"
-    ]
+      path.resolve(__dirname, 'src'),
+      'node_modules',
+    ],
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/
+        use: [
+          'babel-loader',
+          'eslint-loader',
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.styl$/,
         use: [
+          'style-loader',
           {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
               sourceMap: true,
-              camelCase: true
-            }
+              camelCase: true,
+            },
           },
-          {
-            loader: "stylus-loader"
-          }
-        ]
+          'stylus-loader',
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "dist/assets"
-            }
-          }
-        ]
+        loader: 'file-loader',
+        options: {
+          outputPath: 'dist/assets',
+        },
       },
       {
         test: /\.txt$/,
-        use: "raw-loader"
+        use: 'raw-loader',
       },
       {
         test: /\.pug$/,
-        use: "pug-loader"
+        use: 'pug-loader',
       },
       {
         test: /\.yml$/,
         use: [
-          {
-            loader: "json-loader"
-          },
-          {
-            loader: "yaml-loader"
-          }
-        ]
-      }
-    ]
+          'json-loader',
+          'yaml-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: "src/index.pug"
-    })
-  ]
+      template: 'src/index.pug',
+    }),
+  ],
 };

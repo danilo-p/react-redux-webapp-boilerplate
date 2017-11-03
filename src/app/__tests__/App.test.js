@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "../App.js";
+import App from "../App";
 
 it("should mount the App without any problem", () => {
   const div = document.createElement("div");

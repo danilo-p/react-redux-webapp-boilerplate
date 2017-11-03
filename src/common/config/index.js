@@ -1,19 +1,17 @@
-import config from "./config.yml";
+import config from './config.yml';
 
-let local_config;
+let localConfig;
 
 try {
-  local_config = require("./config.local.yml");
-} catch(error) {
-  local_config = {};
+  localConfig = require('./config.local.yml'); // eslint-disable-line global-require
+} catch (error) {
+  localConfig = {};
 }
 
-const final_config = Object.freeze(
-  Object.assign(
-    {},
-    config,
-    local_config
-  )
-);
+const finalConfig = Object.freeze(Object.assign(
+  {},
+  config,
+  localConfig,
+));
 
-export default final_config;
+export default finalConfig;

@@ -1,26 +1,24 @@
-import React from "react";
-import styles from "./App.styl";
-import config from "common/config";
+import React from 'react';
+import config from 'common/config/index';
+import loremIpsum from 'common/lorem.txt';
+import randomImage from 'common/random.jpg';
+import styles from './App.styl';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <h1 className={styles.title}>React Webapp Boilerplate</h1>
-        {require("common/lorem.txt")}
-        <img src={require("common/random.jpg")} alt="Just a random image"/>
-        <code>
-          <pre>
-            {
-              JSON.stringify(config, null, 2)
-            }
-          </pre>
-        </code>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <h1 className={styles.title}>React Webapp Boilerplate</h1>
+    {loremIpsum}
+    <img src={randomImage} alt="This is random" />
+    <code>
+      <pre>
+        {
+          JSON.stringify(config, null, 2)
+        }
+      </pre>
+    </code>
+  </div>
+);
 
 export {
-  App as default
+  App as default,
 };

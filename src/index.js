@@ -1,7 +1,5 @@
 /**
  * TODO
- * - [] Search and add references to the used JS guidelines
- * - [] Search and add references to the used React guidelines
  * - [] Search and add references to the used styles guidelines
  * - [] Study Jest
  * - [] Study Enzyme and React Elements test
@@ -10,6 +8,7 @@
  * - [] Add RxJS
  * - [] Add GraphQL
  * - [] Add support to coveralls
+ * - [x] Search and add references to the used React guidelines
  * - [x] Add tests with Jest
  * - [x] Add support to raw files
  * - [x] Check if the images are being placed at dist/assets

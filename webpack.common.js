@@ -2,6 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
+const cssLoaders = [
+  'style-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+      sourceMap: true,
+      camelCase: true,
+    },
+  },
+];
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -25,17 +37,13 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.css$/,
+        use: cssLoaders,
+      },
+      {
         test: /\.styl$/,
         use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              sourceMap: true,
-              camelCase: true,
-            },
-          },
+          ...cssLoaders,
           'stylus-loader',
         ],
       },

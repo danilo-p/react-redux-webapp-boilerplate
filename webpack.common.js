@@ -3,15 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
 const cssLoaders = [
-  'style-loader',
-  {
-    loader: 'css-loader',
-    options: {
-      modules: true,
-      sourceMap: true,
-      camelCase: true,
-    },
-  },
+
 ];
 
 module.exports = {
@@ -38,12 +30,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: cssLoaders,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
       },
       {
         test: /\.styl$/,
         use: [
-          ...cssLoaders,
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              camelCase: true,
+            },
+          },
           'stylus-loader',
         ],
       },

@@ -1,31 +1,30 @@
 import React from 'react';
 import api from 'common/utils/api';
-import githubLogo from 'common/assets/github.png';
-import styles from './App.styl';
+import Header from './header/Header';
 import UserList from './user-list/UserList';
+import UserSearch from './user-search/UserSearch';
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      usersList: [],
+      userList: [],
+      userListLoading: true,
       userSearch: '',
       userSearchError: '',
-      usersListLoading: true,
       userSearchLoading: false,
     };
 
-    this.onUserSearchChange = this.onUserSearchChange.bind(this);
-    this.onUserAddClick = this.onUserAddClick.bind(this);
-    this.renderUsersSearch = this.renderUsersSearch.bind(this);
+    this.userSearchOnChange = this.userSearchOnChange.bind(this);
+    this.userSearchOnAddClick = this.userSearchOnAddClick.bind(this);
   }
 
   componentDidMount() {
     Promise.all(['danilo-p', 'brunomacf', 'eduhdm', 'rdsedmundo'].map(username => api.getUser(username)))
       .then((requestsResponse) => {
         this.setState({
-          usersList: requestsResponse.map(response => response.data),
+          userList: requestsResponse.map(response => response.data),
         });
       })
       .catch((error) => {
@@ -33,23 +32,23 @@ class App extends React.Component {
       })
       .then(() => {
         this.setState({
-          usersListLoading: false,
+          userListLoading: false,
         });
       });
   }
 
-  onUserSearchChange(event) {
+  userSearchOnChange(event) {
     this.setState({
       userSearch: event.currentTarget.value,
     });
   }
 
-  onUserAddClick() {
+  userSearchOnAddClick() {
     if (this.state.userSearchLoading) {
       return;
     }
 
-    if (this.state.usersList.find(user => user.login === this.state.userSearch)) {
+    if (this.state.userList.find(user => user.login === this.state.userSearch)) {
       this.setState({
         userSearchError: `The user ${this.state.userSearch} is already loaded on the list`,
       });
@@ -63,8 +62,8 @@ class App extends React.Component {
     api.getUser(this.state.userSearch)
       .then((response) => {
         this.setState({
-          usersList: [
-            ...this.state.usersList,
+          userList: [
+            ...this.state.userList,
             response.data,
           ],
           userSearchError: '',
@@ -82,45 +81,23 @@ class App extends React.Component {
       });
   }
 
-  renderUsersSearch() {
-    return (
-      <div className="user-search mt-3">
-        <div className="row">
-          <div className="col-md-4">
-            <div className="input-group">
-              <input type="text" className="form-control" onChange={this.onUserSearchChange} />
-              <span className="input-group-btn">
-                <button
-                  onClick={this.onUserAddClick}
-                  className="btn btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  disabled={this.state.userSearchLoading}
-                >
-                  {
-                    this.state.userSearchLoading
-                      ? 'Loading...'
-                      : 'Add'
-                  }
-                </button>
-              </span>
-            </div>
-            <div className="text-danger" style={{ fontSize: '0.8em' }}>{this.state.userSearchError}</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className="app">
-        <div className={styles.app__header}>
-          <img src={githubLogo} className={styles.app__logo} alt="logo" />
-        </div>
+        <Header />
         <div className="App-body">
           <div className="container">
-            {this.renderUsersSearch()}
-            <UserList list={this.state.usersList} listLoading={this.state.usersListLoading} />
+            <UserSearch
+              value={this.state.userSearch}
+              error={this.state.userSearchError}
+              loading={this.state.userSearchLoading}
+              onChange={this.userSearchOnChange}
+              onAddClick={this.userSearchOnAddClick}
+            />
+            <UserList
+              list={this.state.userList}
+              listLoading={this.state.userListLoading}
+            />
           </div>
         </div>
       </div>

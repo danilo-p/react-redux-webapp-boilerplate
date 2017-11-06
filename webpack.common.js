@@ -2,10 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
-const cssLoaders = [
-
-];
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -19,6 +15,7 @@ module.exports = {
     ],
   },
   module: {
+    noParse: [/dtrace-provider$/, /safe-json-stringify$/, /mv/],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -80,4 +77,7 @@ module.exports = {
       template: 'src/index.pug',
     }),
   ],
+  node: {
+    fs: 'empty',
+  },
 };

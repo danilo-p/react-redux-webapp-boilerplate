@@ -1,21 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  InputGroup,
+  InputGroupButton,
+  Input,
+  Button,
+  Row,
+  Col,
+} from 'reactstrap';
 
 const UserSearch = props => (
   <div className="mt-3">
-    <div className="row">
-      <div className="col-md-4">
-        <div className="input-group">
-          <input
+    <Row>
+      <Col md="4">
+        <InputGroup>
+          <Input
             type="text"
-            className="form-control"
             value={props.value}
             onChange={props.onChange}
           />
-          <span className="input-group-btn">
-            <button
+          <InputGroupButton>
+            <Button
+              color="primary"
               onClick={props.onAddClick}
-              className="btn btn-primary"
               style={{ cursor: 'pointer' }}
               disabled={props.loading}
             >
@@ -24,17 +31,17 @@ const UserSearch = props => (
                   ? 'Loading...'
                   : 'Add'
               }
-            </button>
-          </span>
-        </div>
+            </Button>
+          </InputGroupButton>
+        </InputGroup>
         <div
           className="text-danger"
           style={{ fontSize: '0.8em' }}
         >
           {props.error}
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
   </div>
 );
 

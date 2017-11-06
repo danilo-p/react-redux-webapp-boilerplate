@@ -1,22 +1,28 @@
 import React from 'react';
+import {
+  Card,
+  CardImg,
+  CardBody,
+  CardText,
+} from 'reactstrap';
 import userShape from 'common/shapes/user';
 
 const UserCard = props => (
   <div className="user-card mt-3">
-    <div className="card">
-      <img
+    <Card>
+      <CardImg
         className="card-img-top mw-100"
         src={props.user.avatar_url}
         alt={`${props.user.login}'s GitHub Avatar`}
       />
-      <div className="card-block">
-        <div className="card-title">
+      <CardBody>
+        <CardText>
           <a href={props.user.html_url} title={`${props.user.login}'s GitHub Page`}>
             <b>{props.user.name || props.user.login}</b>
           </a>
-        </div>
-      </div>
-    </div>
+        </CardText>
+      </CardBody>
+    </Card>
   </div>
 );
 

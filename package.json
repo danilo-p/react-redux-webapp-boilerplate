@@ -49,10 +49,11 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "bootstrap": "4.0.0-beta.2",
+    "bootstrap": "4.0.0-beta",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "reactstrap": "^5.0.0-alpha.3",
     "winston": "^2.4.0"
   }
 }

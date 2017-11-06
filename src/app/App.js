@@ -1,5 +1,6 @@
 import React from 'react';
 import api from 'common/utils/api';
+import { Container } from 'reactstrap';
 import Header from './header/Header';
 import UserList from './user-list/UserList';
 import UserSearch from './user-search/UserSearch';
@@ -86,7 +87,7 @@ class App extends React.Component {
       <div className="app">
         <Header />
         <div className="App-body">
-          <div className="container">
+          <Container>
             <UserSearch
               value={this.state.userSearch}
               error={this.state.userSearchError}
@@ -98,7 +99,7 @@ class App extends React.Component {
               list={this.state.userList}
               listLoading={this.state.userListLoading}
             />
-          </div>
+          </Container>
         </div>
       </div>
     );

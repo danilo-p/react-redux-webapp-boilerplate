@@ -8,4 +8,4 @@
 - https://github.com/krasimir/react-in-patterns
 - http://redux.js.org/
 - https://getbootstrap.com/
-- https://react-bootstrap.github.io/
+- https://github.com/reactstrap/reactstrap

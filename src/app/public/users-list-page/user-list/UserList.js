@@ -1,8 +1,8 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
-import UserCard from 'common/components/UserCard';
 import PropTypes from 'prop-types';
+import { Row, Col } from 'reactstrap';
 import userShape from 'common/shapes/user';
+import UserCard from '../user-card/UserCard';
 
 class UsersList extends React.Component {
   renderUsersList() {

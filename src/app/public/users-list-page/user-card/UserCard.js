@@ -3,9 +3,11 @@ import {
   Card,
   CardImg,
   CardBody,
-  CardText,
+  CardLink,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import userShape from 'common/shapes/user';
+// import UserPreview from '../../app/userPreview/userPreview';
 
 const UserCard = props => (
   <div className="user-card mt-3">
@@ -16,11 +18,11 @@ const UserCard = props => (
         alt={`${props.user.login}'s GitHub Avatar`}
       />
       <CardBody>
-        <CardText>
-          <a href={props.user.html_url} title={`${props.user.login}'s GitHub Page`}>
-            <b>{props.user.name || props.user.login}</b>
-          </a>
-        </CardText>
+        <Link href={`/${props.user.login}`} to={`/${props.user.login}`}>
+          <CardLink>
+            {props.user.name || props.user.login}
+          </CardLink>
+        </Link>
       </CardBody>
     </Card>
   </div>
@@ -34,4 +36,6 @@ UserCard.defaultProps = {
   user: {},
 };
 
-export default UserCard;
+export {
+  UserCard as default,
+};

@@ -18,6 +18,9 @@ const UserSearch = props => (
             type="text"
             value={props.value}
             onChange={props.onChange}
+            onKeyPress={(event) => {
+              if (event.key === 'Enter') { props.onAddClick(); }
+            }}
           />
           <InputGroupButton>
             <Button
@@ -64,3 +67,4 @@ UserSearch.defaultProps = {
 export {
   UserSearch as default,
 };
+

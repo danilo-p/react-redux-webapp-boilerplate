@@ -3,7 +3,6 @@ import {
   Card,
   CardImg,
   CardBody,
-  CardLink,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import userShape from 'common/shapes/user';
@@ -19,9 +18,7 @@ const UserCard = props => (
       />
       <CardBody>
         <Link href={`/${props.user.login}`} to={`/${props.user.login}`}>
-          <CardLink>
-            {props.user.name || props.user.login}
-          </CardLink>
+          {props.user.name || props.user.login}
         </Link>
       </CardBody>
     </Card>

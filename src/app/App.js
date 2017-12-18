@@ -6,15 +6,13 @@ import UserPage from './public/user-page/UserPage';
 
 
 const App = () => (
-
   <div className="app">
     <Header />
     <Switch>
       <Route exact path="/" component={UserListPage} />
-      <Route path="/:string" component={UserPage} />
+      <Route path="/user/:string" component={UserPage} />
     </Switch>
   </div>
-
 );
 
 export {

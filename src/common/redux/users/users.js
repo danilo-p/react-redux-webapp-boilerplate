@@ -6,6 +6,10 @@ const addUser = user => ({
 });
 
 const reducer = (state, action) => {
+  if (!state) {
+    return [];
+  }
+
   switch (action.type) {
   case 'ADD_USER':
     return [

@@ -24,7 +24,7 @@ import 'bootstrap/dist/css/bootstrap-grid.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import usersReducer from 'common/redux/users/users';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import woodman from 'woodman';
@@ -32,7 +32,9 @@ import App from './app/App';
 
 woodman.load('console %d{yyyy-MM-dd HH:mm:ss} [%logger] %level - %message%n');
 
-const store = createStore(usersReducer);
+const store = createStore(combineReducers({
+  usersReducer,
+}));
 
 ReactDOM.render(
   (

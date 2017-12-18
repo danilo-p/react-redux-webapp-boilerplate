@@ -5,7 +5,7 @@ import api from 'common/utils/api';
 import UserList from './user-list/UserList';
 import UserSearch from './user-search/UserSearch';
 
-const logger = woodman.getLogger('App');
+const logger = woodman.getLogger('UsersListPage');
 
 class UsersListPage extends React.Component {
   constructor() {

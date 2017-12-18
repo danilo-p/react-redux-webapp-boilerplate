@@ -1,8 +1,11 @@
 import { Container } from 'reactstrap';
 import React from 'react';
+import woodman from 'woodman';
 import api from 'common/utils/api';
 import UserList from './user-list/UserList';
 import UserSearch from './user-search/UserSearch';
+
+const logger = woodman.getLogger('App');
 
 class UsersListPage extends React.Component {
   constructor() {
@@ -28,7 +31,7 @@ class UsersListPage extends React.Component {
         });
       })
       .catch((error) => {
-        console.error('Could not get the initial users list', error);
+        logger.error('Could not get the initial users list', error);
       })
       .then(() => {
         this.setState({

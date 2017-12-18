@@ -23,12 +23,13 @@ import 'bootstrap/dist/css/bootstrap-grid.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import usersReducer from  'common/redux/users/users';
+import usersReducer from 'common/redux/users/users';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
 
-let store = createStore(usersReducer);
+const store = createStore(usersReducer);
 
 ReactDOM.render(
   (
